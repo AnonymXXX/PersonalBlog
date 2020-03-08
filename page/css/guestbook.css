@@ -1,0 +1,39 @@
+.description {
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: 2px 3px 5px #555555;
+    text-align: left;
+    padding: 25px 20px 40px 20px;
+}
+
+.description > p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.blog_comments {
+    text-align: left;
+}
+
+.blog_comments_msg {
+    width: 100%;
+    display: inline-block;
+    margin: 20px 0px 10px 0px;
+    font-size: 16px;
+    color: #333333;
+}
+
+.blog_comment {
+    background-color: #d9edf7;
+    border: 1px solid #abcdef;
+    border-radius: 4px;
+    padding: 10px;
+    color: #31708f;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.blog_comment p {
+    margin: 15px 0px 8px 0px;
+}

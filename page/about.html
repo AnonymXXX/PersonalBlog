@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anonym个人博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/about.css">
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <a class="title" href="/">Anonym的博客</a>
+        <ul class="menu">
+            <li><a href="/">首页</a></li>
+            <li><a href="/sitemap.html">地图</a></li>
+            <li><a href="/about.html">关于</a></li>
+            <li><a href="/guestbook.html">留言</a></li>
+        </ul>
+        <div class="search_bar">
+            <input type="text" placeholder="输入关键词查询">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+<div class="content">
+    <div class="content_left">
+        <div class="description">
+            <div class="about_title">关于我</div>
+            <p>会修电脑的野生程序员</p>
+            <p>花括号不换行</p>
+            <p>认为JavaScript是世界上最好的语言</p>
+            <div class="about_title about_blog">关于博客</div>
+            <p>会修电脑的野生程序员</p>
+            <p>花括号不换行</p>
+            <p>认为JavaScript是世界上最好的语言</p>
+        </div>
+        <div class="blog_comments" id="blog_comments">
+            <span class="blog_comments_msg">关于：目前有{{total}}条评论</span>
+            <div class="blog_comment" v-for="comment in comments">
+                <span><strong>{{comment.user_name}}</strong>：{{comment.options}} 发表于 {{comment.ctime}} <a style="cursor: pointer" v-on:click="reply(comment.id, comment.user_name)">[回复]</a></span>
+                <p>{{comment.content}}</p>
+            </div>
+        </div>
+        <div class="send_comment" id="send_comment">
+            <span>发表评论</span>
+            <div>
+                <input type="hidden" id="comment_reply" value="-1"/>
+                <input type="hidden" id="comment_reply_name" value="0"/>
+                <input type="text" placeholder="昵称" class="comment_name"/>
+                <input type="text" placeholder="邮箱（评论被回复时你能收到通知）" class="comment_email"/>
+            </div>
+            <div>
+                <textarea placeholder="无意义的内容我可能不会回复你" class="comment_content"></textarea>
+            </div>
+            <div>
+                <input type="text" class="comment_code" placeholder="验证码"/>
+                <span v-html="code" v-on:click="changeCode()"></span>
+            </div>
+            <button v-on:click="sendComment()">提交</button>
+        </div>
+    </div>
+    <div class="content_right">
+        <div class="right_module" id="random_tags">
+            <div>随机标签云</div>
+            <span>
+                <a v-for="tag in tags" v-bind:style="{color: randomColor(), fontSize: randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
+            </span>
+        </div>
+        <div class="right_module" id="new_hot">
+            <div>最近热门</div>
+            <ul>
+                <li v-for="temp in titleList">
+                    <a v-bind:href="temp.link">{{temp.title}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right_module" id="new_comments">
+            <div>最新评论</div>
+            <ul>
+                <li v-for="comment in commentList">
+                    <div>
+                        <span>{{comment.name}}</span>
+                        <span class="pull_right">{{comment.date}}</span>
+                    </div>
+                    <p><a v-bind:href="comment.link">{{comment.content}}</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <footer class="footer">
+        <ul>
+            <li><a href="/">C/C++</a></li>
+            <li><a href="/">Java</a></li>
+            <li><a href="/">JavaScript</a></li>
+            <li><a href="/">树莓派</a></li>
+            <li><a href="/">win10</a></li>
+            <li><a href="/">Linux</a></li>
+            <li><a href="/">Mac</a></li>
+            <li><a href="/">Python</a></li>
+            <li><a href="/">PC技术</a></li>
+            <li><a href="/">C/C++</a></li>
+            <li><a href="/">Java</a></li>
+            <li><a href="/">JavaScript</a></li>
+            <li><a href="/">树莓派</a></li>
+            <li><a href="/">win10</a></li>
+            <li><a href="/">Linux</a></li>
+        </ul>
+        <p>Copyright © 2010-2019 Anonym的博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+    </footer>
+    <script src="./js/about.js"></script>
+    <script src="./js/base.js"></script>
+</body>
+</html>

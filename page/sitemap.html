@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anonym个人博客</title>
+    <link rel="stylesheet" href="./css/sitemap.css">
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+    <div class="title">Anonym个人博客's Site Map</div>
+    <div class="link"><a href="/index.html">Anonym个人博客</a> > 站点地图</div>
+    <div class="blog_list" id="blog_list">
+        <span>最新文章</span>
+        <ul>
+            <li v-for="blog in blogList"><a v-bind:href="blog.link">{{blog.title}}</a></li>
+        </ul>
+    </div>
+    <div class="sort" id="random_tags">
+        <span>分类目录</span>
+        <ul>
+            <li v-for="tag in tags"><a v-bind:href="tag.link">{{tag.text}}</a></li>
+        </ul>
+    </div>
+    <footer class="footer">
+        查看博客首页：<a href="/index.html">Anonym个人博客</a>
+    </footer>
+    <script src="./js/sitemap.js"></script>
+    <script src="./js/base.js"></script>
+</body>
+</html>
